@@ -10,9 +10,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.web.servlet.config.annotation.CorsRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-
 import java.util.Set;
 
 @SpringBootApplication
@@ -52,7 +49,8 @@ public class PmAppServiceApplication {
 			if (!userRepository.existsByUsername("admin")) {
 				UserEntity adminUser = UserEntity.builder()
 						.username("admin")
-						.password(passwordEncoder.encode("admin"))
+						.email("admin@metropolinato.com")
+						.password(passwordEncoder.encode("adminadmin"))
 						.isEnable(true)
 						.accountNoExpired(true)
 						.accountNoLocked(true)
@@ -65,7 +63,8 @@ public class PmAppServiceApplication {
 			if (!userRepository.existsByUsername("user")) {
 				UserEntity regularUser = UserEntity.builder()
 						.username("user")
-						.password(passwordEncoder.encode("user"))
+						.email("user@metropolinato.com")
+						.password(passwordEncoder.encode("useruser"))
 						.isEnable(true)
 						.accountNoExpired(true)
 						.accountNoLocked(true)

@@ -40,17 +40,18 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Autowired
     private RoleRepository roleRepository;
 
+    // Interpretar "username" como si fuera "email"
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        UserEntity userEntity = userRepository.findUserEntityByUsername(username)
-                .orElseThrow(() -> new UsernameNotFoundException("El usuario " + username + " no existe"));
+        UserEntity userEntity = userRepository.findUserEntityByEmail(username) // Cambiado para buscar por email
+                .orElseThrow(() -> new UsernameNotFoundException("El usuario con email " + username + " no existe"));
 
         List<SimpleGrantedAuthority> authorityList = userEntity.getRoles()
                 .stream()
                 .map(role -> new SimpleGrantedAuthority("ROLE_".concat(role.getRoleEnum().name())))
                 .collect(Collectors.toList());
 
-        return new org.springframework.security.core.userdetails.User(userEntity.getUsername(),
+        return new org.springframework.security.core.userdetails.User(userEntity.getEmail(), // Cambiado para usar email
                 userEntity.getPassword(),
                 userEntity.isEnable(),
                 userEntity.isAccountNoExpired(),
@@ -60,29 +61,29 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     }
 
     public AuthResponse loginUser(AuthLoginRequest authLoginRequest) {
-        String username = authLoginRequest.username();
+        String email = authLoginRequest.email();  // Usamos email en lugar de username
         String password = authLoginRequest.password();
 
-        Authentication authentication = this.authenticate(username, password);
+        Authentication authentication = this.authenticate(email, password);
         SecurityContextHolder.getContext().setAuthentication(authentication);
         String accessToken = jwtUtils.createToken(authentication);
 
-        return new AuthResponse(username, "User logged in successfully", accessToken, true);
+        return new AuthResponse(email, "User logged in successfully", accessToken, true);
     }
 
-    public Authentication authenticate(String username, String password) {
-        UserDetails userDetails = this.loadUserByUsername(username);
+    public Authentication authenticate(String email, String password) {
+        UserDetails userDetails = this.loadUserByUsername(email);  // Cambiado para usar email
 
         if (!passwordEncoder.matches(password, userDetails.getPassword())) {
             throw new BadCredentialsException("Invalid password");
         }
-        return new UsernamePasswordAuthenticationToken(username, userDetails.getPassword(), userDetails.getAuthorities());
+        return new UsernamePasswordAuthenticationToken(email, userDetails.getPassword(), userDetails.getAuthorities());
     }
 
     public AuthResponse createUser(AuthCreateUserRequest authCreateUserRequest) {
         String username = authCreateUserRequest.username();
         String password = authCreateUserRequest.password();
-        String email = authCreateUserRequest.email(); // Asegúrate de que el DTO tenga el email
+        String email = authCreateUserRequest.email();
 
         List<String> roleRequest = authCreateUserRequest.roleRequest().roleListName();
         Set<RoleEntity> roleEntitySet = roleRepository.findRoleEntitiesByRoleEnumIn(roleRequest).stream().collect(Collectors.toSet());

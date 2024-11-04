@@ -18,7 +18,6 @@ import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
 import java.util.Collection;
-
 public class JwtTokenValidator extends OncePerRequestFilter {
 
     private JwtUtils jwtUtils;
@@ -40,7 +39,8 @@ public class JwtTokenValidator extends OncePerRequestFilter {
 
             DecodedJWT decodedJWT = jwtUtils.validateToken(jwtToken); // Validamos el token
 
-            String username = jwtUtils.extractUsername(decodedJWT);
+            // Cambiamos "username" a "email" ya que el email es ahora el identificador principal
+            String email = jwtUtils.extractEmail(decodedJWT);
             String stringRoles = jwtUtils.getRoles(decodedJWT).asString();
 
             // Convertimos los roles del token en GrantedAuthority
@@ -48,7 +48,7 @@ public class JwtTokenValidator extends OncePerRequestFilter {
 
             // Autenticamos el usuario y sus roles en el contexto de seguridad
             SecurityContext context = SecurityContextHolder.getContext();
-            Authentication authentication = new UsernamePasswordAuthenticationToken(username, null, authorities);
+            Authentication authentication = new UsernamePasswordAuthenticationToken(email, null, authorities);
             context.setAuthentication(authentication);
             SecurityContextHolder.setContext(context); // Seteamos el contexto
         }

@@ -15,7 +15,6 @@ import java.util.Date;
 import java.util.Map;
 import java.util.UUID;
 import java.util.stream.Collectors;
-
 @Component
 public class JwtUtils {
 
@@ -25,11 +24,12 @@ public class JwtUtils {
     @Value("${security.jwt.user.generator}")
     private String userGenerator;
 
-    // Métodoo para crear un token con el rol del usuario
+    // METODO para crear un token con el rol del usuario
     public String createToken(Authentication authentication) {
         Algorithm algorithm = Algorithm.HMAC256(this.privateKey);
 
-        String username = authentication.getPrincipal().toString();
+        // Cambiamos "username" a "email" para usarlo como el identificador principal
+        String email = authentication.getPrincipal().toString();
 
         // Obtenemos solo los roles en lugar de permisos o autoridades
         String roles = authentication.getAuthorities()
@@ -40,7 +40,7 @@ public class JwtUtils {
         // Generamos el token
         return JWT.create()
                 .withIssuer(this.userGenerator)
-                .withSubject(username)
+                .withSubject(email)  // Cambiamos para usar email como subject
                 .withClaim("roles", roles)  // Cambiamos "authorities" a "roles"
                 .withIssuedAt(new Date())
                 .withExpiresAt(new Date(System.currentTimeMillis() + 1800000))
@@ -64,18 +64,19 @@ public class JwtUtils {
         }
     }
 
-    // Extraemos el usuario dentro del token
-    public String extractUsername(DecodedJWT decodedJWT) {
-        return decodedJWT.getSubject();
+    // Cambiamos el nombre del método a extractEmail para reflejar el uso de email en lugar de username
+    public String extractEmail(DecodedJWT decodedJWT) {
+        return decodedJWT.getSubject();  // Ahora el subject es el email
     }
 
-    // Métodoo para obtener los roles desde el token
+    // Método para obtener los roles desde el token
     public Claim getRoles(DecodedJWT decodedJWT) {
         return decodedJWT.getClaim("roles"); // Ahora obtenemos los roles
     }
 
-    // Métodoo para devolver todos los claims
+    // Método para devolver todos los claims
     public Map<String, Claim> returnAllClaims(DecodedJWT decodedJWT) {
         return decodedJWT.getClaims();
     }
 }
+
