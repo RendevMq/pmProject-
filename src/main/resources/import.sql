@@ -1,9 +1,9 @@
 INSERT INTO estaciones (codigo, nombre, direccion, estado, date_created, date_updated) VALUES ('M01', 'Teran', 'Chorrillos', 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
-INSERT INTO estaciones (codigo, nombre, direccion, estado, date_created, date_updated) VALUES ('M02', 'BENAVIDES', 'MIRAFLORES', 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
-INSERT INTO estaciones (codigo, nombre, direccion, estado, date_created, date_updated) VALUES ('M03', 'JAVIER PRADO', 'SAN ISIDRO', 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
-INSERT INTO estaciones (codigo, nombre, direccion, estado, date_created, date_updated) VALUES ('M04', 'ESTADIO NACIONAL', 'VICTORIA', 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+INSERT INTO estaciones (codigo, nombre, direccion, estado, date_created, date_updated) VALUES ('M02', 'Benavides', 'MIRAFLORES', 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+INSERT INTO estaciones (codigo, nombre, direccion, estado, date_created, date_updated) VALUES ('M03', 'Javier Prado', 'SAN ISIDRO', 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+INSERT INTO estaciones (codigo, nombre, direccion, estado, date_created, date_updated) VALUES ('M04', 'Estadio Nacional', 'VICTORIA', 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 INSERT INTO estaciones (codigo, nombre, direccion, estado, date_created, date_updated) VALUES ('M05', 'Canada', 'Centro de lima', 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
-INSERT INTO estaciones (codigo, nombre, direccion, estado, date_created, date_updated) VALUES ('M06', 'ESPAÑA', 'La victoria', 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+INSERT INTO estaciones (codigo, nombre, direccion, estado, date_created, date_updated) VALUES ('M06', 'España', 'La victoria', 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 
 INSERT INTO rutas(codigo_rut,nombre,rut_desc,initial_hour,final_hour) VALUES('B','Regular','servicio regular','20-10-2024 08:00:00','20-10-2024 23:00:00');
 INSERT INTO rutas(codigo_rut,nombre,rut_desc,initial_hour,final_hour) VALUES('EXP1','Expreso1','servicio expreso','20-10-2024 10:00:00','20-10-2024 20:00:00');
