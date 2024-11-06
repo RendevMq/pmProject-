@@ -26,7 +26,7 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 @Configuration
 @EnableWebSecurity
-@EnableMethodSecurity // Habilitamos la seguridad basada en anotaciones
+@EnableMethodSecurity
 public class SecurityConfig {
 
     @Autowired
