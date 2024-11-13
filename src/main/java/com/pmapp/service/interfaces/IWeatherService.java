@@ -1,4 +1,7 @@
 package com.pmapp.service.interfaces;
 
-public class IWeatherService {
+import com.pmapp.presentation.dto.weather.WeatherResponseDTO;
+
+public interface IWeatherService {
+    WeatherResponseDTO getWeather(String city);
 }
