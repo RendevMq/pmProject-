@@ -2,6 +2,7 @@ package com.pmapp.service.interfaces;
 
 import com.pmapp.presentation.dto.CronogramaBusDTO;
 import com.pmapp.presentation.dto.result.CronogramaBusQueryDto;
+import com.pmapp.presentation.dto.result.CronogramaUltimaSalidaDTO;
 
 import java.util.List;
 import java.util.Optional;
@@ -16,4 +17,6 @@ public interface ICronogramaBusService {
 
     // Nuevo métodoO para obtener el detalle del cronograma
     List<CronogramaBusQueryDto> getCronogramaBusDetails();
+
+    List<CronogramaUltimaSalidaDTO> getCronogramaUltimaSalida();
 }

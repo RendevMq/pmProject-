@@ -2,6 +2,7 @@ package com.pmapp.presentation.controller;
 
 import com.pmapp.presentation.dto.CronogramaBusDTO;
 import com.pmapp.presentation.dto.result.CronogramaBusQueryDto;
+import com.pmapp.presentation.dto.result.CronogramaUltimaSalidaDTO;
 import com.pmapp.service.interfaces.ICronogramaBusService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,5 +50,10 @@ public class CronogramaBusController {
     @GetMapping("/detalle")
     public List<CronogramaBusQueryDto> obtenerDetalleCronograma() {
         return cronogramaBusService.getCronogramaBusDetails();
+    }
+
+    @GetMapping("/ultima-salida")
+    public List<CronogramaUltimaSalidaDTO> getUltimaSalida() {
+        return cronogramaBusService.getCronogramaUltimaSalida();
     }
 }

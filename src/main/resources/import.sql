@@ -591,6 +591,9 @@ INSERT INTO cronograma_buses(codigo_bus, id_estacion_bus, hora_salida) VALUES('B
 INSERT INTO cronograma_buses(codigo_bus, id_estacion_bus, hora_salida) VALUES('BUS127',20,'20-10-2024 20:10:00');
 INSERT INTO cronograma_buses(codigo_bus, id_estacion_bus, hora_salida) VALUES('BUS128',6,'20-10-2024 20:10:00');
 INSERT INTO cronograma_buses(codigo_bus, id_estacion_bus, hora_salida) VALUES('BUS128',20,'20-10-2024 20:10:00');
+
+
+
 INSERT INTO cronograma_buses(codigo_bus, id_estacion_bus, hora_salida) VALUES('BUS03',2,'20-10-2024 20:50:00');
 INSERT INTO cronograma_buses(codigo_bus, id_estacion_bus, hora_salida) VALUES('BUS03',5,'20-10-2024 20:50:00');
 INSERT INTO cronograma_buses(codigo_bus, id_estacion_bus, hora_salida) VALUES('BUS03',13,'20-10-2024 20:50:00');
@@ -655,6 +658,17 @@ INSERT INTO cronograma_buses(codigo_bus, id_estacion_bus, hora_salida) VALUES('B
 INSERT INTO cronograma_buses(codigo_bus, id_estacion_bus, hora_salida) VALUES('BUS25',20,'20-10-2024 20:50:00');
 INSERT INTO cronograma_buses(codigo_bus, id_estacion_bus, hora_salida) VALUES('BUS26',6,'20-10-2024 20:50:00');
 INSERT INTO cronograma_buses(codigo_bus, id_estacion_bus, hora_salida) VALUES('BUS26',20,'20-10-2024 20:50:00');
+INSERT INTO cronograma_buses(codigo_bus, id_estacion_bus, hora_salida) VALUES('BUS01',2,'20-10-2024 20:50:00');
+INSERT INTO cronograma_buses(codigo_bus, id_estacion_bus, hora_salida) VALUES('BUS01',5,'20-10-2024 20:50:00');
+INSERT INTO cronograma_buses(codigo_bus, id_estacion_bus, hora_salida) VALUES('BUS01',13,'20-10-2024 20:50:00');
+INSERT INTO cronograma_buses(codigo_bus, id_estacion_bus, hora_salida) VALUES('BUS01',21,'20-10-2024 20:50:00');
+INSERT INTO cronograma_buses(codigo_bus, id_estacion_bus, hora_salida) VALUES('BUS02',2,'20-10-2024 20:50:00');
+INSERT INTO cronograma_buses(codigo_bus, id_estacion_bus, hora_salida) VALUES('BUS02',5,'20-10-2024 20:50:00');
+INSERT INTO cronograma_buses(codigo_bus, id_estacion_bus, hora_salida) VALUES('BUS02',13,'20-10-2024 20:50:00');
+INSERT INTO cronograma_buses(codigo_bus, id_estacion_bus, hora_salida) VALUES('BUS02',21,'20-10-2024 20:50:00');
+
+
+
 INSERT INTO cronograma_buses(codigo_bus, id_estacion_bus, hora_salida) VALUES('BUS129',2,'20-10-2024 20:30:00');
 INSERT INTO cronograma_buses(codigo_bus, id_estacion_bus, hora_salida) VALUES('BUS129',5,'20-10-2024 20:30:00');
 INSERT INTO cronograma_buses(codigo_bus, id_estacion_bus, hora_salida) VALUES('BUS129',13,'20-10-2024 20:30:00');
@@ -721,15 +735,3 @@ INSERT INTO cronograma_buses(codigo_bus, id_estacion_bus, hora_salida) VALUES('B
 INSERT INTO cronograma_buses(codigo_bus, id_estacion_bus, hora_salida) VALUES('BUS151',20,'20-10-2024 20:30:00');
 INSERT INTO cronograma_buses(codigo_bus, id_estacion_bus, hora_salida) VALUES('BUS152',6,'20-10-2024 20:30:00');
 INSERT INTO cronograma_buses(codigo_bus, id_estacion_bus, hora_salida) VALUES('BUS152',20,'20-10-2024 20:30:00');
-INSERT INTO cronograma_buses(codigo_bus, id_estacion_bus, hora_salida) VALUES('BUS01',2,'20-10-2024 20:50:00');
-INSERT INTO cronograma_buses(codigo_bus, id_estacion_bus, hora_salida) VALUES('BUS01',5,'20-10-2024 20:50:00');
-INSERT INTO cronograma_buses(codigo_bus, id_estacion_bus, hora_salida) VALUES('BUS01',13,'20-10-2024 20:50:00');
-INSERT INTO cronograma_buses(codigo_bus, id_estacion_bus, hora_salida) VALUES('BUS01',21,'20-10-2024 20:50:00');
-INSERT INTO cronograma_buses(codigo_bus, id_estacion_bus, hora_salida) VALUES('BUS02',2,'20-10-2024 20:50:00');
-INSERT INTO cronograma_buses(codigo_bus, id_estacion_bus, hora_salida) VALUES('BUS02',5,'20-10-2024 20:50:00');
-INSERT INTO cronograma_buses(codigo_bus, id_estacion_bus, hora_salida) VALUES('BUS02',13,'20-10-2024 20:50:00');
-INSERT INTO cronograma_buses(codigo_bus, id_estacion_bus, hora_salida) VALUES('BUS02',21,'20-10-2024 20:50:00');
-
-
-
-

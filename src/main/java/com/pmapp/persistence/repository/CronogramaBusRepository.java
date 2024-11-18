@@ -4,6 +4,7 @@ import com.pmapp.persistence.entity.BusEntity;
 import com.pmapp.persistence.entity.CronogramaBusEntity;
 import com.pmapp.persistence.entity.EstacionRutaEntity;
 import com.pmapp.presentation.dto.result.CronogramaBusQueryDto;
+import com.pmapp.presentation.dto.result.CronogramaUltimaSalidaDTO;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
@@ -36,4 +37,24 @@ public interface CronogramaBusRepository extends CrudRepository<CronogramaBusEnt
         ORDER BY 4,1,2
         """, nativeQuery = true)
     List<CronogramaBusQueryDto> findCronogramaBusDetails();
+
+    @Query(value = """
+            SELECT 
+                buses.codigo_bus AS codigoBus,
+                estaciones.nombre AS estacion,
+                rutas.nombre AS ruta,
+                cronograma.hora_salida AS horaSalida
+            FROM cronograma_buses cronograma
+            JOIN estaciones_rutas estacio_rutas ON cronograma.id_estacion_bus = estacio_rutas.id
+            JOIN estaciones ON estaciones.codigo = estacio_rutas.estacion
+            JOIN rutas ON rutas.codigo_rut = estacio_rutas.ruta
+            JOIN buses ON cronograma.codigo_bus = buses.codigo_bus
+            WHERE cronograma.hora_salida = (
+                SELECT MAX(a.hora_salida)
+                FROM cronograma_buses a
+                WHERE a.codigo_bus = cronograma.codigo_bus
+            )
+            ORDER BY 4, 1, 2
+            """, nativeQuery = true)
+    List<CronogramaUltimaSalidaDTO> findCronogramaUltimaSalida();
 }

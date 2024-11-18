@@ -4,6 +4,7 @@ import com.pmapp.persistence.entity.CronogramaBusEntity;
 import com.pmapp.persistence.repository.CronogramaBusRepository;
 import com.pmapp.presentation.dto.CronogramaBusDTO;
 import com.pmapp.presentation.dto.result.CronogramaBusQueryDto;
+import com.pmapp.presentation.dto.result.CronogramaUltimaSalidaDTO;
 import com.pmapp.service.exception.ResourceNotFoundException;
 import com.pmapp.service.interfaces.ICronogramaBusService;
 import com.pmapp.util.EntityToDtoMapper;
@@ -36,6 +37,11 @@ public class CronogramaBusServiceImpl implements ICronogramaBusService {
     @Override
     public List<CronogramaBusQueryDto> getCronogramaBusDetails() {
         return cronogramaBusRepository.findCronogramaBusDetails();
+    }
+
+    @Override
+    public List<CronogramaUltimaSalidaDTO> getCronogramaUltimaSalida() {
+        return cronogramaBusRepository.findCronogramaUltimaSalida();
     }
 
 }
